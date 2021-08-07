@@ -9,8 +9,8 @@ if (Test-Path -Path $Folder) {
     & "$Folder\scripts\activate";
     & "$Folder/scripts/python.exe" -u "`"$PSScriptRoot\$Filename`""
 } else {
-    #python -u $Filename
     py -3 -m venv $Folder
     & "$Folder\scripts\activate"
+    & "$Folder/scripts/python.exe" -m pip install --upgrade pip
     & "$Folder/scripts/python.exe" -u "`"$PSScriptRoot\$Filename`""
 }
